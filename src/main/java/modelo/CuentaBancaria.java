@@ -3,27 +3,29 @@ package modelo;
 import java.time.LocalDate;
 
 import excepciones.CuentaIncompletaexcepcion;
+import repositorio.INuemeroCuentaBancaria;
+import repositorio.IfechaSistema;
 
 
 public class CuentaBancaria {
 	private Integer numeroCuentaInteger;
-	private String nombrePropietario;
+	private Cliente propietario;
 	private LocalDate fechaCreacion;
 	
-	public CuentaBancaria(Integer numeroCuentaInteger, String nombrePropietario, LocalDate fechaCreacion) {
+	public CuentaBancaria(Integer numeroCuentaInteger, Cliente propietario, LocalDate fechaCreacion) {
 		this.numeroCuentaInteger = numeroCuentaInteger;
-		this.nombrePropietario = nombrePropietario;
+		this.propietario = propietario;
 		this.fechaCreacion = fechaCreacion;
 	}
 	
 	
-	 public static CuentaBancaria factoryCuenta(Integer numeroCuenta, String nombrePropietario, LocalDate fechaCreacion) throws CuentaIncompletaexcepcion {
-	        if(numeroCuenta==null || nombrePropietario==null || fechaCreacion==null){
+	 public static CuentaBancaria factoryCuenta(INuemeroCuentaBancaria numeroCuenta, Cliente propietario, IfechaSistema fechaCreacion) throws CuentaIncompletaexcepcion {
+	        if(numeroCuenta==null || propietario==null || fechaCreacion==null){
 	            throw new CuentaIncompletaexcepcion();
 	        }
 	        else
 	        {
-	            return new CuentaBancaria(numeroCuenta, nombrePropietario, fechaCreacion);
+	            return new CuentaBancaria(numeroCuenta.getNumeroCuentaBancariaNuevo(), propietario,fechaCreacion.getDate() );
 	        }
 	    }
 	

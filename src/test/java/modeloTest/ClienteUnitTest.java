@@ -47,13 +47,6 @@ class ClienteUnitTest {
 		Assertions.assertThrows(ClienteIncompletoException.class, ()-> Cliente.factoryCliente(null,null, "Juan", "32.456.567", null,"15415467", null));	 
 	}
 	
-	/* @Test 
-	 public void ClienteInstanciaEdadCorrecta()throws ClienteIncompletoException,ClienteMenorEdadExeption{
-		 Mockito.when(fechaSistema.getDate()).thenReturn(LocalDate.of(2019, 06, 19));
-		unCliente = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03)); 
-			
-		
-	 }*/
 	 
 	 @Test 
 	 public void ClienteInstanciaEdadIncorrecta()throws ClienteIncompletoException,ClienteMenorEdadExeption{
