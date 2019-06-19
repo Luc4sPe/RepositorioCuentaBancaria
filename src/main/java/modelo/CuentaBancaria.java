@@ -3,7 +3,7 @@ package modelo;
 import java.time.LocalDate;
 
 import excepciones.CuentaIncompletaexcepcion;
-import excepciones.PilotoIncompletoException;
+
 
 public class CuentaBancaria {
 	private Integer numeroCuentaInteger;
