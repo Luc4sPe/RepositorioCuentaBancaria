@@ -124,18 +124,14 @@ public class Cliente {
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
-	
-	
-	
-	
-
-	  
 
 
 
-	
-
+	@Override
+	public String toString() {
+		return "Cliente [idCliente=" + idCliente + ", nombre=" + nombre + ", numeroDocumento=" + numeroDocumento
+				+ ", domicilio=" + domicilio + ", telefono=" + telefono + ", fechaNacimiento=" + fechaNacimiento + "]";
+	}
 	
 	
 

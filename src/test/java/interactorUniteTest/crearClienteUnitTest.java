@@ -1,7 +1,7 @@
 package interactorUniteTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
+
 
 import java.time.LocalDate;
 
@@ -39,6 +39,7 @@ public class crearClienteUnitTest {
 		CrearClienteUseCase crearClienteUseCase = new CrearClienteUseCase(crearNuevoCliente);
 		boolean result = crearClienteUseCase.crearCliente(nuevoCliente);
 		assertTrue(result);	
+		System.out.println(nuevoCliente);
 	}
 	
 	@Test 
