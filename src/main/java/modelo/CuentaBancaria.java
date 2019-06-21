@@ -28,6 +28,36 @@ public class CuentaBancaria {
 	            return new CuentaBancaria(numeroCuenta.getNumeroCuentaBancariaNuevo(), propietario,fechaCreacion.getDate() );
 	        }
 	    }
+
+
+	public Integer getNumeroCuentaInteger() {
+		return numeroCuentaInteger;
+	}
+
+
+	public void setNumeroCuentaInteger(Integer numeroCuentaInteger) {
+		this.numeroCuentaInteger = numeroCuentaInteger;
+	}
+
+
+	public Cliente getPropietario() {
+		return propietario;
+	}
+
+
+	public void setPropietario(Cliente propietario) {
+		this.propietario = propietario;
+	}
+
+
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
 	
 	
 	 

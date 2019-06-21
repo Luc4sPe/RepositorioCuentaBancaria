@@ -52,14 +52,79 @@ public class Cliente {
 		
 		
 	}
-	
-	public LocalDate getFechaNacimiento() {
-		return this.fechaNacimiento;
-	} 
-	public String getDocumento() {
-		
-		return this.numeroDocumento;
+
+
+
+	public Integer getIdCliente() {
+		return idCliente;
 	}
+
+
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public String getNumeroDocumento() {
+		return numeroDocumento;
+	}
+
+
+
+	public void setNumeroDocumento(String numeroDocumento) {
+		this.numeroDocumento = numeroDocumento;
+	}
+
+
+
+	public String getDomicilio() {
+		return domicilio;
+	}
+
+
+
+	public void setDomicilio(String domicilio) {
+		this.domicilio = domicilio;
+	}
+
+
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+
+
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+
+
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	
 	
 	
 	
