@@ -21,6 +21,9 @@ public class CuentaBancaria {
 		this.fechaCreacion = fechaCreacion;
 		this.saldo=saldo;
 	}
+	public CuentaBancaria() {
+		
+	}
 	
 	
 	 public static CuentaBancaria factoryCuenta(INuemeroCuentaBancaria numeroCuenta, Cliente propietario, IfechaSistema fechaCreacion,IsaldoCuentaBancaria saldocuenta) throws CuentaIncompletaexcepcion, CuentaSaldoNegativoExcepcion {
@@ -80,6 +83,10 @@ public class CuentaBancaria {
 	public String toString() {
 		return "CuentaBancaria [numeroCuentaInteger=" + numeroCuentaInteger + ", propietario=" + propietario
 				+ ", fechaCreacion=" + fechaCreacion + ", saldo=" + saldo + "]";
+	}
+	public CuentaBancaria getSaldo(Double result) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

@@ -1,7 +1,7 @@
 package interactor;
 
 import excepciones.CuentaBancariaExisteExcepcion;
-import modelo.Cliente;
+
 import modelo.CuentaBancaria;
 import repositorio.IcrearCuantaBancaria;
 

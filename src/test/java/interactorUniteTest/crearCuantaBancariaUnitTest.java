@@ -15,7 +15,7 @@ import excepciones.ClienteMenorEdadExeption;
 import excepciones.CuentaBancariaExisteExcepcion;
 import excepciones.CuentaIncompletaexcepcion;
 import excepciones.CuentaSaldoNegativoExcepcion;
-import interactor.CrearClienteUseCase;
+
 import interactor.CrearCuentaBancariaUseCase;
 import mockito.MockitoExtension;
 import modelo.Cliente;
