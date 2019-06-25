@@ -41,7 +41,7 @@ class crearCuantaBancariaUnitTest {
 		Mockito.when(fechaSistema.getDate()).thenReturn(LocalDate.of(2019, 06, 19));
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
-		Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(0.0);
+		Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(1.0);
 		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, saldoCuenta);
 		Mockito.when(cuentaNuevaBancaria.guardarCuenta(nuevaCuentaBancaria)).thenReturn(true);
 		CrearCuentaBancariaUseCase crearCuentaUseCase = new CrearCuentaBancariaUseCase(cuentaNuevaBancaria);

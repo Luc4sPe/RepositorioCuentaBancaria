@@ -6,7 +6,7 @@ import modelo.CuentaBancaria;
 
 public interface IdepositarDineroCuentaBancaria {
 	
-	//boolean guardarDeposito(CuentaBancaria object);
+	
 	
 	public Double getDepositoDinero();
 
