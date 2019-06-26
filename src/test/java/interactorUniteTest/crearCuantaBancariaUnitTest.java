@@ -3,6 +3,7 @@ package interactorUniteTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -41,7 +42,7 @@ class crearCuantaBancariaUnitTest {
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 30.00);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 30.00,LocalTime.of(8, 00));
 		Mockito.when(cuentaNuevaBancaria.guardarCuenta(nuevaCuentaBancaria)).thenReturn(true);
 		CrearCuentaBancariaUseCase crearCuentaUseCase = new CrearCuentaBancariaUseCase(cuentaNuevaBancaria);
 		boolean result = crearCuentaUseCase.crearCuentaBancaria(nuevaCuentaBancaria);
@@ -55,10 +56,10 @@ class crearCuantaBancariaUnitTest {
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 30.00);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 30.00,LocalTime.of(8, 00));
 		
 		Cliente  propietario2 = Cliente.factoryCliente(fechaSistema,02,"Pepe","31.456.560","Chilecito","15315460",LocalDate.of(2000,04,03));
-		CuentaBancaria nuevaCuentaBancaria2 =CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario2, fechaSistema, 30.00);
+		CuentaBancaria nuevaCuentaBancaria2 =CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario2, fechaSistema, 30.00,LocalTime.of(8, 00));
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria2);
 		CrearCuentaBancariaUseCase crearCuentaUseCase = new CrearCuentaBancariaUseCase(cuentaNuevaBancaria);
 		Assertions.assertThrows(CuentaBancariaExisteExcepcion.class, () -> crearCuentaUseCase.crearCuentaBancaria(nuevaCuentaBancaria) );

@@ -3,6 +3,7 @@ package interactorUniteTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -45,7 +46,7 @@ class DepositarDineroUnitTest {
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
 		
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 10.00);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 10.00,LocalTime.of(8, 00));
 		Mockito.when(deposito.getDepositoDinero()).thenReturn(10.00);
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria);
 		System.out.println("Saldo de La Cuenta: "+nuevaCuentaBancaria.getSaldo());
@@ -65,7 +66,7 @@ class DepositarDineroUnitTest {
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
 		
 		Mockito.when(deposito.getDepositoDinero()).thenReturn(10.00);
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 10.00);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 10.00,LocalTime.of(8, 00));
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria);
 		Mockito.when(deposito.guardarDeposito(nuevaCuentaBancaria)).thenReturn(true);
 		DepositarDineroUseCase depositarUseCase = new DepositarDineroUseCase( deposito, cuentaNuevaBancaria);

@@ -3,6 +3,7 @@ package interactorUniteTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -46,7 +47,7 @@ class ExtraccionDineroUnitTest {
 		//creo La cuenta
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00,LocalTime.of(8, 00));
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria);
 		//Extracion dinero
 		Mockito.when(extracionDinero.getExtraccionDinero()).thenReturn(20.00);
@@ -69,7 +70,7 @@ class ExtraccionDineroUnitTest {
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00,LocalTime.of(8, 00));
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(2)).thenReturn(nuevaCuentaBancaria);
 		//Extracion dinero
 		Mockito.when(extracionDinero.getExtraccionDinero()).thenReturn(20.00);
@@ -89,7 +90,7 @@ class ExtraccionDineroUnitTest {
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00,LocalTime.of(8, 00));
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria);
 		//Extracion dinero
 		Mockito.when(extracionDinero.getExtraccionDinero()).thenReturn(60.00);
