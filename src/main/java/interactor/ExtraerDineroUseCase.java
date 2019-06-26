@@ -31,16 +31,7 @@ public class ExtraerDineroUseCase {
 			throw new NumeroCuentaErroneoExcepcion();
 			
 		}
-		/*if((NumeroCuentaExiste(cuenta)) && (dinero.getExtraccionDinero()<= cuenta.getSaldo())) {
-		Double result =cuenta.getSaldo()-dinero.getExtraccionDinero();
-		cuenta.setSaldo(result);
-		return this.extracionDinero.guardarExtraccionDinero(cuenta);
-	}else {
-		System.out.println("el numero de cuenta no es el correcto, o el monto a sacar supera al saldo");
 		
-		throw new NumeroCuentaErroneoExcepcion();
-		
-	}*/
 		
 		
 	}

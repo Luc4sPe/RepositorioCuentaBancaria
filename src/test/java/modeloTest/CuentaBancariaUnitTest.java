@@ -29,16 +29,15 @@ class CuentaBancariaUnitTest {
 	IfechaSistema fechaSistema;
 	@Mock
 	INuemeroCuentaBancaria numeroCuentaBancaria;
-	@Mock
-	IsaldoCuentaBancaria saldoCuenta;
+	
 	@Test
 	public void CuentaBancariaInstanciaCorrectaTodosLosAtributosOk() throws CuentaIncompletaexcepcion, ClienteIncompletoException,ClienteMenorEdadExeption, CuentaSaldoNegativoExcepcion {
 		
 		Mockito.when(fechaSistema.getDate()).thenReturn(LocalDate.of(2019, 06, 19));
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
-		Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(0.0);
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, saldoCuenta);
+		
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 30.00);
 		assertNotNull(nuevaCuentaBancaria);
 	}
 	@Test
@@ -46,8 +45,8 @@ class CuentaBancariaUnitTest {
 		Mockito.when(fechaSistema.getDate()).thenReturn(LocalDate.of(2019, 06, 19));
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
-		 Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(0.0);
-		Assertions.assertThrows(CuentaIncompletaexcepcion.class, ()-> CuentaBancaria.factoryCuenta(null,propietario,null,saldoCuenta));
+		 
+		Assertions.assertThrows(CuentaIncompletaexcepcion.class, ()-> CuentaBancaria.factoryCuenta(null,propietario,null,30.00));
 	}
 	
 	@Test
@@ -55,7 +54,6 @@ class CuentaBancariaUnitTest {
 		Mockito.when(fechaSistema.getDate()).thenReturn(LocalDate.of(2019, 06, 19));
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
-		 Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(-20.0);
-		Assertions.assertThrows(CuentaSaldoNegativoExcepcion.class, ()-> CuentaBancaria.factoryCuenta(numeroCuentaBancaria,propietario,fechaSistema,saldoCuenta));
+		Assertions.assertThrows(CuentaSaldoNegativoExcepcion.class, ()-> CuentaBancaria.factoryCuenta(numeroCuentaBancaria,propietario,fechaSistema,-30.00));
 	}
 }

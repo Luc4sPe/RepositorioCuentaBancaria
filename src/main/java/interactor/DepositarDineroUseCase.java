@@ -28,8 +28,7 @@ public boolean realizarDeposito(CuentaBancaria nuevaBancaria ,IdepositarDineroCu
 		 return this.deposito.guardarDeposito(nuevaBancaria);	
 	}
 	else{
-	System.out.println("el numero de cuenta no es el correcto");
-	throw new NumeroCuentaErroneoExcepcion();
+		throw new NumeroCuentaErroneoExcepcion();
 	}
 	
 

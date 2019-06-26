@@ -26,13 +26,13 @@ public class CuentaBancaria {
 	}
 	
 	
-	 public static CuentaBancaria factoryCuenta(INuemeroCuentaBancaria numeroCuenta, Cliente propietario, IfechaSistema fechaCreacion,IsaldoCuentaBancaria saldocuenta) throws CuentaIncompletaexcepcion, CuentaSaldoNegativoExcepcion {
+	 public static CuentaBancaria factoryCuenta(INuemeroCuentaBancaria numeroCuenta, Cliente propietario, IfechaSistema fechaCreacion,Double saldocuenta) throws CuentaIncompletaexcepcion, CuentaSaldoNegativoExcepcion {
 	        if(numeroCuenta==null || propietario==null || fechaCreacion==null || saldocuenta==null){
 	            throw new CuentaIncompletaexcepcion();
 	        }
-	        else if (saldocuenta.getSaldoCuenta()>=0) {
+	        else if (saldocuenta>=0) {
 	        
-	            return new CuentaBancaria(numeroCuenta.getNumeroCuentaBancariaNuevo(), propietario,fechaCreacion.getDate(),saldocuenta.getSaldoCuenta() );
+	            return new CuentaBancaria(numeroCuenta.getNumeroCuentaBancariaNuevo(), propietario,fechaCreacion.getDate(),saldocuenta );
 	        }else {
 				throw new CuentaSaldoNegativoExcepcion();
 			}

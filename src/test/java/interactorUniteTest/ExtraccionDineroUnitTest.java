@@ -30,8 +30,7 @@ import repositorio.IsaldoCuentaBancaria;
 class ExtraccionDineroUnitTest {
 	@Mock
 	IfechaSistema fechaSistema;
-	@Mock
-	IsaldoCuentaBancaria saldoCuenta;
+	
 	@Mock
 	IcrearCuantaBancaria cuentaNuevaBancaria;
 	@Mock 
@@ -46,19 +45,18 @@ class ExtraccionDineroUnitTest {
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2000,03,03));
 		//creo La cuenta
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
-		Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(50.00);
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, saldoCuenta);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00);
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria);
 		//Extracion dinero
 		Mockito.when(extracionDinero.getExtraccionDinero()).thenReturn(20.00);
 		Mockito.when(extracionDinero.guardarExtraccionDinero(nuevaCuentaBancaria)).thenReturn(true);		
-		System.out.println(nuevaCuentaBancaria);
+		System.out.println("Saldo de la cuenta: "+nuevaCuentaBancaria.getSaldo());
 		ExtraerDineroUseCase extraccionUseCase = new ExtraerDineroUseCase(extracionDinero,cuentaNuevaBancaria);
 		boolean result = extraccionUseCase.RealizarExtracionDinero(nuevaCuentaBancaria,extracionDinero);
 		assertTrue(result);
-		System.out.println("Saldo de la Cuenta: "+nuevaCuentaBancaria.getSaldo()+" Extracion: "+extracionDinero.getExtraccionDinero());
-		//System.out.println(extraccionUseCase.RealizarExtracionDinero(nuevaCuentaBancaria, extracionDinero));
+		System.out.println(" Extracion: "+extracionDinero.getExtraccionDinero()+" Saldo de la Cuenta: "+nuevaCuentaBancaria.getSaldo());
+	//	System.out.println(extraccionUseCase.RealizarExtracionDinero(nuevaCuentaBancaria, extracionDinero));
 		
 	}
 	
@@ -69,9 +67,9 @@ class ExtraccionDineroUnitTest {
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2000,03,03));
 		//creo La cuenta
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
-		Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(50.00);
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, saldoCuenta);
+		
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00);
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(2)).thenReturn(nuevaCuentaBancaria);
 		//Extracion dinero
 		Mockito.when(extracionDinero.getExtraccionDinero()).thenReturn(20.00);
@@ -89,9 +87,9 @@ class ExtraccionDineroUnitTest {
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2000,03,03));
 		//creo La cuenta
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
-		Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(50.00);
 		
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, saldoCuenta);
+		
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 50.00);
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria);
 		//Extracion dinero
 		Mockito.when(extracionDinero.getExtraccionDinero()).thenReturn(60.00);

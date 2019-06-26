@@ -52,6 +52,7 @@ public class crearClienteUnitTest {
 		CrearClienteUseCase craerClienteUseCase = new CrearClienteUseCase(crearNuevoCliente);
 		Assertions.assertThrows(ClienteExisteException.class, ()-> craerClienteUseCase.crearCliente(nuevoCliente));
 		
+		System.out.println("No se creo el Cliente Por que ya Existe");
 		
 		
 		

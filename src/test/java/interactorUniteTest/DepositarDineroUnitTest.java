@@ -30,8 +30,7 @@ class DepositarDineroUnitTest {
 	
 	@Mock
 	IfechaSistema fechaSistema;
-	@Mock
-	IsaldoCuentaBancaria saldoCuenta;
+	
 	@Mock
 	IcrearCuantaBancaria cuentaNuevaBancaria;
 	@Mock 
@@ -44,17 +43,18 @@ class DepositarDineroUnitTest {
 		Mockito.when(fechaSistema.getDate()).thenReturn(LocalDate.of(2019, 07, 19));
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(1);
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
-		Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(10.00);
+		
+		
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 10.00);
 		Mockito.when(deposito.getDepositoDinero()).thenReturn(10.00);
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, saldoCuenta);
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria);
-		System.out.println(nuevaCuentaBancaria);
+		System.out.println("Saldo de La Cuenta: "+nuevaCuentaBancaria.getSaldo());
 		Mockito.when(deposito.guardarDeposito(nuevaCuentaBancaria)).thenReturn(true);
 		DepositarDineroUseCase depositarUseCase = new DepositarDineroUseCase( deposito, cuentaNuevaBancaria);
 		boolean result = depositarUseCase.realizarDeposito(nuevaCuentaBancaria,deposito);
 		assertTrue(result);
-		System.out.println(nuevaCuentaBancaria);
-		System.out.println(depositarUseCase.realizarDeposito(nuevaCuentaBancaria,deposito));
+		System.out.println(" Dinero depositado: "+deposito.getDepositoDinero()+" Saldo de la Cuenta : "+nuevaCuentaBancaria.getSaldo());
+		//System.out.println(depositarUseCase.realizarDeposito(nuevaCuentaBancaria,deposito));
 		
 	}
 	
@@ -63,15 +63,15 @@ class DepositarDineroUnitTest {
 		Mockito.when(fechaSistema.getDate()).thenReturn(LocalDate.of(2019, 07, 19));
 		Mockito.when(numeroCuentaBancaria.getNumeroCuentaBancariaNuevo()).thenReturn(2);
 		Cliente  propietario = Cliente.factoryCliente(fechaSistema,01,"Juan","32.456.567","Chilecito","15415467",LocalDate.of(2001,03,03));
-		Mockito.when(saldoCuenta.getSaldoCuenta()).thenReturn(10.00);
+		
 		Mockito.when(deposito.getDepositoDinero()).thenReturn(10.00);
-		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, saldoCuenta);
+		CuentaBancaria nuevaCuentaBancaria = CuentaBancaria.factoryCuenta(numeroCuentaBancaria, propietario, fechaSistema, 10.00);
 		Mockito.when(cuentaNuevaBancaria.verificarNumeroCuentaBancaria(1)).thenReturn(nuevaCuentaBancaria);
 		Mockito.when(deposito.guardarDeposito(nuevaCuentaBancaria)).thenReturn(true);
 		DepositarDineroUseCase depositarUseCase = new DepositarDineroUseCase( deposito, cuentaNuevaBancaria);
 		Assertions.assertThrows(NumeroCuentaErroneoExcepcion.class, () -> depositarUseCase.realizarDeposito(nuevaCuentaBancaria, deposito));
 	
-		System.out.println("No se realizo el deposito numer erroneo"+ nuevaCuentaBancaria);
+		System.out.println("No se realizo el deposito numero cuenta erroneo, Numero Correcto:  " +nuevaCuentaBancaria.getNumeroCuentaInteger());
 		
 	}
 }
